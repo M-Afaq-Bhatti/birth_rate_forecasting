@@ -14,17 +14,13 @@ def forecast_births(area, months):
     # Step 2: Filter only selected area
     area_df = df[df['NHS Board area'] == area].copy()
 
-    print("DEBUG: area_df columns:", area_df.columns)
-    print("DEBUG: area_df sample:\n", area_df.head())
-
-    
-    # Step 3: Preprocess data to get full feature matrix (same as in training)
-    X_scaled, y, features_df = preprocess_data(area_df, training=False)
+    # Step 3: Preprocess data to get full feature matrix
+    X_scaled, y, features_df, _ = preprocess_data(area_df, training=False, scaler=scaler)
 
     # Step 4: Start with the last row of scaled features
     last_row_scaled = X_scaled[-1].reshape(1, -1)
 
-    # Step 5: Get last known year and month (from features_df, NOT from scaler!)
+    # Step 5: Get last known year and month
     last_entry = features_df.iloc[-1]
     last_year = last_entry['Year']
     last_month = last_entry['Month']
@@ -58,7 +54,7 @@ def forecast_births(area, months):
         area_df = pd.concat([area_df, pd.DataFrame([new_row])], ignore_index=True)
 
         # Reprocess features and update the last scaled row
-        X_scaled, _, features_df = preprocess_data(area_df)
+        X_scaled, _, features_df, _ = preprocess_data(area_df, training=False, scaler=scaler)
         last_row_scaled = X_scaled[-1].reshape(1, -1)
 
         last_year = next_year
@@ -66,8 +62,8 @@ def forecast_births(area, months):
 
     # Return result
     forecast_df = pd.DataFrame({
-        'Date': dates,
-        'Predicted_Births': predictions
+        'date': dates,
+        'prediction': predictions
     })
 
     return forecast_df
