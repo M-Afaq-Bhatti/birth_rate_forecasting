@@ -51,4 +51,26 @@ python scheduler/retrain_model.py
 
 ## 📊 Sample Dashboard Preview
 ![Dashboard Preview](assets/dashboard.png)
+---
 
+## Model Details
+Algorithm: XGBoost Regressor
+
+**Features**:
+- Lag values of previous 3 months
+- Month/Year time features
+- One-hot encoded area values
+
+**Scaler**: StandardScaler from Scikit-learn
+
+**Evaluation**:
+- MAE: ~69
+- R² Score: 0.837
+
+---
+## Data Source
+This project uses public monthly birth statistics from:
+
+- General Register Office for Scotland
+
+- Ensure any CSV data is placed in the expected format within the data/ folder.
