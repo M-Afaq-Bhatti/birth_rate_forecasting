@@ -2,7 +2,6 @@
 
 A machine learning-powered dashboard that provides **real-time forecasting** of birth rates across Scottish regions. Built using **XGBoost** for predictive modeling and **Streamlit** for an interactive user interface, the system supports automated weekly retraining to keep forecasts fresh and reliable.
 
----
 
 ## 🚀 Features
 
@@ -12,11 +11,6 @@ A machine learning-powered dashboard that provides **real-time forecasting** of 
 - 🔁 Automated model retraining with scheduler support
 - 🗃️ Easily extendable for other time-series use cases
 - 💡 Beginner-friendly architecture and codebase
-
----
-
-
----
 
 ## ⚙️ Installation
 
@@ -31,7 +25,7 @@ cd birth-rate-forecasting-dashboard
 pip install -r requirements.txt
 ```
 
----
+
 ## 🧪 Running the Dashboard
 
 ```bash
@@ -40,18 +34,18 @@ cd app
 streamlit run dashboard.py
 ```
 
----
+
 ## 🔁 Enable Weekly Retraining 
 
 ```bash
 # Run manually (or set as a weekly CRON job)
 python scheduler/retrain_model.py
 ```
----
+
 
 ## 📊 Sample Dashboard Preview
 ![Dashboard Preview](assets/dashboard.png)
----
+
 
 ## Model Details
 Algorithm: XGBoost Regressor
@@ -65,12 +59,13 @@ Algorithm: XGBoost Regressor
 
 **Evaluation**:
 - MAE: ~69
-- R² Score: 0.837
+- R² Score: 0.937
 
----
+
 ## Data Source
 This project uses public monthly birth statistics from:
 
 - General Register Office for Scotland
 
 - Ensure any CSV data is placed in the expected format within the data/ folder.
+
