@@ -58,7 +58,7 @@ Algorithm: XGBoost Regressor
 **Scaler**: StandardScaler from Scikit-learn
 
 **Evaluation**:
-- MAE: ~69
+- MAE: ~19
 - R² Score: 0.937
 
 
@@ -68,4 +68,5 @@ This project uses public monthly birth statistics from:
 - General Register Office for Scotland
 
 - Ensure any CSV data is placed in the expected format within the data/ folder.
+
 
